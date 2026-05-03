@@ -4,7 +4,6 @@ body {
     overflow: hidden;
 }
 
-/* Pages */
 .page {
     height: 100vh;
     display: flex;
@@ -13,53 +12,53 @@ body {
     flex-direction: column;
 }
 
-.hidden { display: none; }
+.hidden {
+    display: none !important;   /* 🔥 FIX */
+}
 
-/* Pink background */
 .pink {
     background: linear-gradient(135deg, #ff9a9e, #fecfef);
 }
 
-/* Black */
 .black {
     background: black;
     color: white;
 }
 
-/* White */
 .white {
     background: white;
 }
 
-/* Buttons */
+.lightPink {
+    background: #ffe4ec !important;
+}
+
 button {
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 10px;
     border-radius: 8px;
     background: #ff4d6d;
     color: white;
     border: none;
-    font-size: 16px;
 }
 
 /* Decoration */
 #decor {
-    font-size: 40px;
+    font-size: 45px;
     margin-top: 20px;
-    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    color: #ff007f;
 }
 
 /* Cake */
 #cakeBox {
     position: relative;
-    margin-top: 20px;
 }
 
 #cake {
     width: 250px;
 }
 
-/* Cutting line */
 #cutLine {
     position: absolute;
     width: 5px;
@@ -70,26 +69,29 @@ button {
     transition: height 1s;
 }
 
-/* Letter */
-#letter {
-    position: fixed;
-    top: 30%;
-    width: 100%;
-    text-align: center;
-}
-
-.envelope {
-    font-size: 40px;
-    cursor: pointer;
-}
-
-/* Message Page */
-#messagePage {
+/* Popup */
+#finalPopup {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: white;
+    display: flex; /* always flex */
+    justify-content: center;
+    align-items: center;
+}
+
+.paper {
+    background: pink;
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 20px;
     text-align: center;
-    padding-top: 100px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
 }
